@@ -1,6 +1,7 @@
 import 'package:automated_trucking_management_system/data/load_store.dart';
 import 'package:automated_trucking_management_system/main.dart';
 import 'package:automated_trucking_management_system/models/truck_load.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 class MemoryLoadStore implements LoadStore {
