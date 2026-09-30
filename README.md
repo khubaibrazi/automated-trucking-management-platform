@@ -1,31 +1,38 @@
 # Automated Trucking Management Platform
 
-A functional Flutter prototype for creating and tracking trucking loads. This repository is part of a BS Software Engineering Final Year Project focused on improving coordination among truck owners, drivers, customers, and logistics managers in Pakistan.
+A functional Flutter prototype developed as a BS Software Engineering Final Year Project at The Superior University, Lahore.
 
-## Current Status
+The project explores how trucking loads can be created, validated, stored, retrieved, and presented through a structured mobile workflow.
 
-The repository now contains one complete, demonstrable workflow:
+## Why This Project
+
+The idea was influenced by practical exposure to logistics operations and shipment workflows. The goal is to translate part of that real-world process into a clearer digital experience.
+
+## Current Working Workflow
+
+The repository contains one complete, demonstrable workflow:
 
 1. A user opens the load-creation form.
-2. Required fields and weight are validated.
-3. The load is serialized and stored locally on the device.
-4. Saved loads are retrieved when the app starts.
-5. The dashboard displays the latest loads and live counts.
-
-This is still a prototype. It does not yet include accounts, a remote backend, multi-user synchronization, payments, maps, or notifications.
+2. Pickup, delivery, cargo, and weight details are entered.
+3. Required fields and positive weight are validated.
+4. The load is serialized and stored locally.
+5. Saved loads are retrieved after application restart.
+6. The dashboard displays recent loads and live counts.
 
 ## Implemented Features
 
 - Working Flutter application entry point
 - Responsive Material dashboard
-- Create-load form for pickup, delivery, cargo, and weight
-- Required-field and positive-weight validation
-- Local persistence using `shared_preferences`
-- Automatic retrieval after an app restart
+- Create-load form
+- Required-field validation
+- Positive-weight validation
+- Local persistence with `shared_preferences`
+- Automatic retrieval after restart
 - Latest-load cards with route, cargo, weight, date, and status
 - Dashboard counts derived from stored data
-- Pull-to-refresh and storage error states
-- Widget tests covering creation, retrieval, display, and validation
+- Pull-to-refresh behaviour
+- Storage error states
+- Widget tests covering creation, validation, retrieval, and display
 
 ## Technology
 
@@ -34,6 +41,24 @@ This is still a prototype. It does not yet include accounts, a remote backend, m
 - Material Design
 - `shared_preferences`
 - `flutter_test`
+
+## Current Architecture
+
+```text
+User
+  ↓
+Create Load
+  ↓
+Validation
+  ↓
+Serialization
+  ↓
+Local Storage
+  ↓
+Retrieval
+  ↓
+Dashboard
+```
 
 ## Project Structure
 
@@ -55,9 +80,9 @@ Automated_Trucking_management_System/
 ### Prerequisites
 
 - Flutter SDK compatible with Dart SDK `^3.5.2`
-- A configured Flutter development environment
+- Configured Flutter development environment
 
-### Steps
+### Setup
 
 ```bash
 git clone https://github.com/khubaibrazi/automated-trucking-management-platform.git
@@ -74,11 +99,24 @@ flutter test
 
 ## Data Storage
 
-Loads are stored as JSON strings in the app's local preferences. This makes the workflow persistent on one device and suitable for demonstrating the prototype without a server.
+Loads are currently stored as JSON strings in local preferences. This makes the prototype persistent on one device and suitable for demonstrating the working flow without requiring a remote server.
 
-Local preferences are not an appropriate final database for a multi-user logistics platform. A future version should place the `LoadStore` interface behind an authenticated remote API while retaining a local cache for offline use.
+## Project Status
 
-## Planned Work
+This repository is a **working prototype**, not a finished multi-user production platform.
+
+The following are not currently implemented in this repository:
+
+- Authentication
+- Remote backend
+- Multi-user synchronization
+- Live location tracking
+- Payments
+- Notifications
+
+## Future Direction
+
+A future version could extend the current storage interface with:
 
 - Authentication and role-based access
 - Remote REST API and database
@@ -89,12 +127,14 @@ Local preferences are not an appropriate final database for a multi-user logisti
 - Integration and backend tests
 - Deployment configuration
 
-Planned items are not presented as implemented features.
-
 ## Academic Context
 
-Final Year Project, BS Software Engineering, The Superior University, Lahore.
+Final Year Project  
+BS Software Engineering  
+The Superior University, Lahore
 
 ## Author
 
-Khubaib Razi
+**Khubaib Razi**
+
+- GitHub: https://github.com/khubaibrazi
